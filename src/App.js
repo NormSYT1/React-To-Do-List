@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux'
+import './App.css'
+import { useState } from 'react'
+import { addTodo, toggleTodo,clearTodo,allClearTodo } from './redux/actions/index.actions'
 
-function App() {
+function App(props) {
+  const [todo, setTodo]= useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='adding-input'>
+        <h1>YAPILACAKLAR LİSTESİ</h1>
+        <div>
+          <input value = {todo} 
+          onChange = {(e) =>  setTodo(e.target.value)}
+           placeholder='Görev Gir' />
+          <button onClick={() => {
+            if (!todo.trim()) return; // BOŞSA EKLEME
+              props.addTodo(todo.trim());
+              setTodo('');
+          }} >Ekle</button>
+        </div>
+      </div>
+      <ul className='notes_conteiner'>
+        {props.notes.map((note) => (
+          <li onClick={() => props.toggleTodo(note.id)}
+            key={note.id}
+            className={note.completed ? 'completed' : ''}
+          >
+            {note.todo}
+          </li>
+        ))}
+        <button onClick = {() => props.clearTodo()} className='clear'>Tamamlanan Görevleri Kaldır</button>
+          <br/>
+        <button onClick = {() => props.allClearTodo()} className='clear'>Hepsini Kaldır</button>
+      </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps, {addTodo,toggleTodo,clearTodo,allClearTodo})(App)

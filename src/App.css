@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+.App{
+    font-family: sans-serif;
+    color:rgb(71, 44, 2);
+    width: 75vw;
+    text-align: center;
+    height:  150vh;
+    margin: 0 auto;
+    font-size: 36px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.adding-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 15%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.adding-input > h1{
+  padding-bottom: 1rem; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.adding-input input, .adding-input button, .clear{
+  padding:  Spx;
+  border: none;
+  outline: 0;
+  font-size: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+}
+
+.adding-input button {
+  background-color:rgba(194, 18, 18, 0.699);
+  color: inherit;
+  font-size: 20px;
+  padding: 14px 24px;
+  border-radius: 8px;
+}
+
+.notes-container {
+  height: 85vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  background-color: rgb(204, 13, 13);
+  overflow-y: scroll;
 }
 
-.App-link {
-  color: #61dafb;
+.clear {
+    background-color: rgb(69, 189, 13);
+    border-radius: 60px;
+    margin-top: 40px;
+    font-size: 20px;
+    padding: 15px 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.notes-container > li {
+padding: 8px;
+width: 75vw;
+border-bottom:  1px solid rgb(109, 17, 17);
+list-style: none;
+cursor:pointer
+}
+
+.notes-container > li:first-child {
+   border-top:  1px solid rgb(241, 19, 19);
+}
+
+.notes-container > li:first-child {
+  border-bottom: 0;
+}
+.completed{
+    text-decoration: line-through;
+    text-decoration-color: rgb(241, 19, 19);
+    text-decoration-style: wavy;
+    text-decoration-thickness: 3px;
+    color: chartreuse;
 }
