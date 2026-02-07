@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+#<img width="1872" height="902" alt="Ekran görüntüsü 2026-02-07 225031" src="https://github.com/user-attachments/assets/6ece561a-3eda-4bc3-8103-d4eae817fd8f" />
+
+Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
