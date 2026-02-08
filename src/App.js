@@ -14,7 +14,7 @@ function App(props) {
           onChange = {(e) =>  setTodo(e.target.value)}
            placeholder='Görev Gir' />
           <button onClick={() => {
-            if (!todo.trim()) return; // BOŞSA EKLEME
+            if (!todo.trim()) return; 
               props.addTodo(todo.trim());
               setTodo('');
           }} >Ekle</button>
